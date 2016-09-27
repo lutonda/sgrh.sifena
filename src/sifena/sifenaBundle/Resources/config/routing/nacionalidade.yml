@@ -1,0 +1,30 @@
+nacionalidade:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Nacionalidade:index" }
+
+nacionalidade_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Nacionalidade:show" }
+
+nacionalidade_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Nacionalidade:new" }
+
+nacionalidade_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Nacionalidade:create" }
+    requirements: { _method: post }
+
+nacionalidade_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Nacionalidade:edit" }
+
+nacionalidade_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Nacionalidade:update" }
+    requirements: { _method: post|put }
+
+nacionalidade_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Nacionalidade:delete" }
+    requirements: { _method: post|delete }

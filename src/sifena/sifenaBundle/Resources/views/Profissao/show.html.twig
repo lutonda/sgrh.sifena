@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+
+{% block titulopagina %}
+    <h4><i class="fontello-icon-info-circle"></i> Ver dados de profissão <small></small></h4>
+{% endblock %}
+
+{% block body -%}
+
+    <fieldset>
+
+        <ul class="nav nav-well">
+            <label for="accountTaxVat" class="control-label"> Nome: </label>
+            <li><a class="well well-nice bg-green-light" href="javascript:void(0);">{{ entity.nome |capitalize }} </a></li>
+            <label for="accountTaxVat">Descricao: </label>
+            <li><a class="well well-nice bg-green-light" href="javascript:void(0);">{{ entity.descricao|capitalize }}</a></li>
+        </ul>
+    </fieldset>
+        
+        
+    <a style="font-size: 14px; margin-bottom: -166px; margin-left: 440px;" class="btn btn-large btn-glyph" href="{{ path('profissao') }}"><i class="fontello-icon-list-2"></i> Lista</a>    
+
+    <a href="{{ path('profissao_edit', { 'id': entity.id }) }}">  
+        <button  style="font-size: 14px; margin-bottom: -126px; margin-left: 80px;" class="btn btn-success">
+            <i class="fontello-icon-pencil-neg"></i>Editar</button>
+    </a>
+
+    {{ form(delete_form) }}
+
+{% endblock %}

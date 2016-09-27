@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+{% block titulopagina %}
+    <h4><i class="fontello-icon-archive"></i> Criar Contrato<small></small></h4>
+{% endblock %}
+{% block body -%}
+    
+    {{ form(form) }}
+
+    <ul class="record_actions">
+        <li>
+            <a href="{{ path('contrato') }}">
+                Back to the list
+            </a>
+        </li>
+    </ul>
+
+    {% block javascript %}
+        <script src="{{ asset('assets/plugins/pl-form/validate/js/jquery.validate.min.js') }}"></script> 
+        <script>
+       $(function () {
+                $("#sifena_sifenabundle_contrato_dataFim").datepicker({
+                    format: 'yyyy-mm-dd',
+                    language: 'pt-BR',
+                    startDate: '+3m'
+                   // endDate: '+3m'
+                });
+                
+                $("#sifena_sifenabundle_contrato_dataInicio").datepicker({
+                    format: 'yyyy-mm-dd',
+                    language: 'pt-BR',
+                    //startDate: '+3m'
+                   // endDate: '+3m'
+                });
+
+            });
+        </script>
+
+    </script>            
+
+
+{% endblock %}
+
+
+
+{% endblock %}

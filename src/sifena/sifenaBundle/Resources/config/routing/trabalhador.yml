@@ -1,0 +1,35 @@
+trabalhador:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:index" }
+
+trabalhador_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:show" }
+
+trabalhador_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:new" }
+
+trabalhador_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:create" }
+    requirements: { _method: post }
+
+trabalhador_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:edit" }
+trabalhador_editar:
+    path:     /{id}/editar
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:editar" }
+trabalhador_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:update" }
+    requirements: { _method: post|put }
+
+trabalhador_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:delete" }
+    requirements: { _method: post|delete }
+trabalhador_terminar:
+    path:     /definirRemuneracao
+    defaults: { _controller: "sifenasifenaBundle:Trabalhador:definirRemuneracao" }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="sifena\sifenaBundle\Entity\Pessoa" table="pessoa">
+    <indexes>
+      <index name="fk_nacionalidade" columns="nacionalidade"/>
+      <index name="fk_documento" columns="documento"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="nome" type="string" column="nome" length="100" nullable="false"/>
+    <field name="genero" type="string" column="genero" length="1" nullable="false"/>
+    <field name="ddn" type="date" column="ddn" nullable="true"/>
+    <field name="estadoCivil" type="string" column="estado_civil" length="1" nullable="true"/>
+    <many-to-one field="nacionalidade" target-entity="Nacionalidade">
+      <join-columns>
+        <join-column name="nacionalidade" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="documento" target-entity="Documento">
+      <join-columns>
+        <join-column name="documento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

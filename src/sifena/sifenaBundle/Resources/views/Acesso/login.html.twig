@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Sifena </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Custom styles -->
+        <style type="text/css">
+            .signin-content {
+                max-width: 360px;
+                margin: 0 auto 20px;
+            }
+        </style>
+
+        <!-- Le styles -->
+        <link href="{{ asset('assets/css/lib/bootstrap.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/lib/bootstrap-responsive.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/boo-extension.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/boo.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/boo-coloring.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/boo-utility.css') }}" rel="stylesheet">
+
+        <!-- Le fav and touch icons -->
+        <link rel="shortcut icon" href="{{ asset('assets/ico/favicon.ico') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ asset('assets/ico/apple-touch-icon-144-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ asset('assets/ico/apple-touch-icon-114-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}">
+        <link rel="apple-touch-icon-precomposed" href="{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}">
+    </head>
+
+    <body class="signin signin-vertical">
+        <div class="page-container">
+            <div id="header-container">
+                <div id="header">
+                    <div class="navbar-inverse navbar-fixed-top">
+                        <div class="navbar-inner">
+                            <div class="container"> </div>
+                        </div>
+                    </div>
+                    <!-- // navbar -->
+
+                    <div class="header-drawer" style="height:3px"> </div>
+                    <!-- // breadcrumbs --> 
+                </div>
+                <!-- // drawer --> 
+            </div>
+            <!-- // header-container -->
+
+            <div id="main-container">
+                <div id="main-content" class="main-content container">
+                    <div class="signin-content">
+                        <h1 class="welcome text-center" style="line-height: 0.6;"><span style="margin-left: -45px;">Bem-vindo ao</span><br />
+                            Sifena<small>*Sifena*</small></h1>
+                        <div class="well well-black well-impressed">
+                            <div class="tab-content overflow">
+                                <div class="tab-pane fade in active" id="login">
+                                    <h3 class="no-margin-top"><i class="fontello-icon-user-4"></i> Informe as credenciais</h3>
+
+                                    {% if error %}
+                                        <span class="badge badge-negative"> {{ error.message }} <i class="ficon-down-dir f-16"></i></span>
+                                        {% endif %}
+                                    <form class="form-tied margin-00" method="post" action="{{ path('login_check') }}" name="login_form">
+                                        <fieldset>
+                                            <legend class="two"><span>Acesso</span></legend>
+                                            <ul>
+                                                <li>
+                                                    <input id="idLogin" class="input-block-level" type="text" name="_username" placeholder="Nome de utilizador" value="{{ last_username }}">
+                                                </li>
+                                                <li>
+                                                    <input id="idPassword" class="input-block-level" type="password" name="_password" placeholder="Palavra-passe">
+                                                </li>
+                                            </ul>
+                                            <button type="submit" class="btn btn-yellow btn-block btn-large">ENTRAR</button>
+                                            <hr class="margin-xm">
+                                            <label class="checkbox pull-left">
+                                                <input id="remember" class="checkbox" type="checkbox">
+                                                Lembrar-me </label>
+                                            <a href="#forgot" class="pull-right link" data-toggle="tab">Esqueceu a password?</a>
+                                        </fieldset>
+                                    </form>
+                                    <!-- // form --> 
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="web-description">
+                            <h5>Copyright &copy; {{ "now"|date("Y")}}</h5>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script src="{{ asset('assets/js/lib/jquery.js') }}"></script> 
+        <script src="{{ asset('assets/js/lib/jquery-ui.js') }}"></script>
+        <script src="{{ asset('assets/js/lib/jquery.cookie.js') }}"></script> 
+        <script src="{{ asset('assets/js/lib/jquery.date.js') }}"></script> 
+        <script src="{{ asset('assets/js/lib/jquery.mousewheel.js') }}"></script> 
+        <script src="{{ asset('assets/js/lib/jquery.load-image.min.js') }}"></script>
+        <script src="{{ asset('assets/js/lib/bootstrap/bootstrap.js') }}"></script> 
+        <script src="{{ asset('assets/plugins/bootstrap-toggle-button/js/bootstrap-toggle-button.js') }}"></script>
+
+        <script src="{{ asset('assets/js/lib/jquery.js') }}"></script> 
+        <script src="{{ asset('assets/js/lib/jquery-ui.js') }}"></script>
+        <script src="{{ asset('assets/js/lib/jquery.cookie.js') }}"></script> 
+        <!-- Plugins Custom - Form -->
+        <script src="{{ asset('assets/plugins/pl-form/uniform/jquery.uniform.min.js') }}"></script> 
+        <script src="{{ asset('assets/plugins/pl-form/select2/select2.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/pl-form/counter/jquery.counter.js') }}"></script> 
+        <script src="{{ asset('assets/plugins/pl-form/elastic/jquery.elastic.js') }}"></script> 
+        <script src="{{ asset('assets/plugins/pl-form/inputmask/jquery.inputmask.js') }}"></script> 
+        <script src="{{ asset('assets/plugins/pl-form/inputmask/jquery.inputmask.extensions.js') }}"></script> 
+        <script src="{{ asset('assets/plugins/pl-form/duallistbox/jquery.duallistbox.min.js') }}"></script>
+
+        <!-- Plugins Custom - Gallery --> 
+        <script src="{{ asset('assets/plugins/pl-gallery/nailthumb/jquery.nailthumb.1.1.min.js') }}"></script> 
+        <script src="{{ asset('assets/plugins/pl-gallery/nailthumb/showLoading/js/jquery.showLoading.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/pl-gallery/wookmark/jquery.imagesloaded.js') }}"></script>
+        <script src="{{ asset('assets/plugins/pl-gallery/wookmark/jquery.wookmark.min.js') }}"></script>
+        <script src="{{ asset('assets/plugins/pl-form/validate/js/jquery.validate.min.js') }}"></script> 
+
+
+
+
+        {% block javascript %}
+
+            <script type="text/javascript">
+
+                $('#login_form').validate({
+                    ignore: "",
+                    rules: {
+                        _username: {
+                            required: true,
+                            minlength: 8,
+                            maxlength: 20
+                        },
+                        _password: {
+                            required: true,
+                            sminlength: 8,
+                            maxlength: 20
+                        }
+                    },
+                    messages: {
+                        _username: {
+                            required: "Please enter a First Name",
+                            minlength: "First Name must be at least 4 characters",
+                            maxlength: "First Name must be no more than 20 characters"
+                        },
+                        _password: {
+                            required: "Please enter a Last Name",
+                            minlength: "Last Name must be at least 4 characters",
+                            maxlength: "Last Name must be no more than 20 characters"
+                        }
+                    },
+                    highlight: function (label) {
+                        $(label).closest('.control-group').addClass('error');
+                    },
+                    success: function (label) {
+                        $(label).text('Ok!').addClass('valid')
+                                .closest('.control-group').addClass('success');
+                    },
+                    errorPlacement: function (error, label) {
+                        $(label).closest('.controls').append(error);
+                    }
+                });
+
+
+            </script>
+
+
+        {% endblock %}
+        <!-- main js --> 
+        <script src="{{ asset('assets/js/core.js') }}"></script> 
+        <script src="{{ asset('assets/js/application.js') }}"></script> 
+
+
+
+        <script>
+                $(document).ready(function () {
+
+                });
+
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,63 @@
+sifenasifena_funcaoutilizador:
+    resource: "@sifenasifenaBundle/Resources/config/routing/funcaoutilizador.yml"
+    prefix:   /funcaoutilizador
+
+sifenasifena_utilizador:
+    resource: "@sifenasifenaBundle/Resources/config/routing/utilizador.yml"
+    prefix:   /utilizador
+
+sifenasifena_tipocontrato:
+    resource: "@sifenasifenaBundle/Resources/config/routing/tipocontrato.yml"
+    prefix:   /tipocontrato
+
+sifenasifena_contrato:
+    resource: "@sifenasifenaBundle/Resources/config/routing/contrato.yml"
+    prefix:   /contrato
+
+sifenasifena_departamento:
+    resource: "@sifenasifenaBundle/Resources/config/routing/departamento.yml"
+    prefix:   /departamento
+
+sifenasifena_instituicaobancaria:
+    resource: "@sifenasifenaBundle/Resources/config/routing/instituicaobancaria.yml"
+    prefix:   /instituicaobancaria
+
+sifenasifena_trabalhador:
+    resource: "@sifenasifenaBundle/Resources/config/routing/trabalhador.yml"
+    prefix:   /trabalhador
+
+sifenasifena_nacionalidade:
+    resource: "@sifenasifenaBundle/Resources/config/routing/nacionalidade.yml"
+    prefix:   /nacionalidade
+
+sifenasifena_yes:
+    resource: "@sifenasifenaBundle/Resources/config/routing/gabinete.yml"
+    prefix:   /yes
+
+sifenasifena_pessoa:
+    resource: "@sifenasifenaBundle/Resources/config/routing/pessoa.yml"
+    prefix:   /pessoa
+
+sifenasifena_candidato:
+    resource: "@sifenasifenaBundle/Resources/config/routing/candidato.yml"
+    prefix:   /candidato
+
+sifenasifena_formacao:
+    resource: "@sifenasifenaBundle/Resources/config/routing/formacao.yml"
+    prefix:   /formacao
+
+sifenasifena_profissao:
+    resource: "@sifenasifenaBundle/Resources/config/routing/profissao.yml"
+    prefix:   /profissao
+
+sifenasifena_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: sifenasifenaBundle:Default:index }
+
+logout:
+    path:     /logout
+    
+home_redirect:
+    path:     admin/inicio
+    defaults: { _controller: sifenasifenaBundle:Home:homeRedirection }    
+    

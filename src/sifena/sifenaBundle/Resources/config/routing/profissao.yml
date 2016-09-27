@@ -1,0 +1,30 @@
+profissao:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Profissao:index" }
+
+profissao_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Profissao:show" }
+
+profissao_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Profissao:new" }
+
+profissao_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Profissao:create" }
+    requirements: { _method: post }
+
+profissao_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Profissao:edit" }
+
+profissao_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Profissao:update" }
+    requirements: { _method: post|put }
+
+profissao_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Profissao:delete" }
+    requirements: { _method: post|delete }

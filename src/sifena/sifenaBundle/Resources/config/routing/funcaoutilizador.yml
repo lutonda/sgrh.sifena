@@ -1,0 +1,30 @@
+funcaoutilizador:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:FuncaoUtilizador:index" }
+
+funcaoutilizador_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:FuncaoUtilizador:show" }
+
+funcaoutilizador_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:FuncaoUtilizador:new" }
+
+funcaoutilizador_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:FuncaoUtilizador:create" }
+    requirements: { _method: post }
+
+funcaoutilizador_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:FuncaoUtilizador:edit" }
+
+funcaoutilizador_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:FuncaoUtilizador:update" }
+    requirements: { _method: post|put }
+
+funcaoutilizador_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:FuncaoUtilizador:delete" }
+    requirements: { _method: post|delete }

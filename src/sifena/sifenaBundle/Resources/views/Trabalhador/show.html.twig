@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Trabalhador</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Grauacademico</th>
+                <td>{{ entity.grauAcademico }}</td>
+            </tr>
+            <tr>
+                <th>Numerointerno</th>
+                <td>{{ entity.numeroInterno }}</td>
+            </tr>
+            <tr>
+                <th>Numeroconta</th>
+                <td>{{ entity.numeroConta }}</td>
+            </tr>
+            <tr>
+                <th>Iban</th>
+                <td>{{ entity.iban }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('trabalhador') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('trabalhador_edit', { 'id': entity.pessoa }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

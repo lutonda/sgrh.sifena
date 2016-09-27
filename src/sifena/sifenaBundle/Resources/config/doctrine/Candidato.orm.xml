@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="sifena\sifenaBundle\Entity\Candidato" table="candidato">
+    <indexes>
+      <index name="fk1_formacao" columns="formacao"/>
+    </indexes>
+    <id name="pessoa" association-key="true"/>
+    <field name="dataCandidatura" type="datetime" column="data_candidatura" nullable="false"/>
+    <field name="anexo" type="string" column="anexo" length="200" nullable="true"/>
+    <field name="estado" type="string" column="estado" length="2" nullable="true"/>
+    <field name="observacao" type="string" column="observacao" length="200" nullable="true"/>
+    <one-to-one field="pessoa" target-entity="Pessoa">
+      <join-columns>
+        <join-column name="pessoa" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="formacao" target-entity="Formacao">
+      <join-columns>
+        <join-column name="formacao" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

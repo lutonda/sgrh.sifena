@@ -1,0 +1,423 @@
+{% extends '::baseFormularioPassos.html.twig' %}
+
+{% block titulopagina %}
+    <h4><i class=" fontello-icon-user-1"></i> Registar candidato <small></small></h4>
+{% endblock %}
+
+
+
+{% block body -%}
+
+    <div class="well well-nice well-box wizard">
+
+        <form id="DWZD"  class="form-horizontal form-dark" method="post" action="{{ path('candidato_update', { 'id': entity.pessoa.id }) }}" {{ form_enctype(edit_form) }} >
+            <div class="navbar">
+                <div class="navbar-inner">
+                    <div class="container">
+                        <ul>
+                            <li><a href="#tab1fb" data-toggle="tab"> Dados pessoais </a></li>
+                            <li><a href="#tab2fb" data-toggle="tab"> Documentos e anexo</a></li>
+                            <li><a href="#tab3fb" data-toggle="tab"> Formação</a></li>
+                        </ul>
+                        <div class="number-page pull-right"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-content item bg-blue-medium padding-top10 padding-bottom10 no-border-top">
+                <div id="bar" class="progress progress-info progress-mini no-margin">
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div class="tab-content section-content item">
+                <div class="tab-pane" id="tab1fb">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <fieldset>
+
+
+                                <legend><i class="fontello-icon-user-4"></i> Dados Pessoais <span> </span></legend>
+                                {{ form_errors(edit_form) }}
+                                <ul class="form-list label-left list-bordered dotted">
+                                    {{ form_errors(edit_form.pessoa.nome) }}
+                                    {{ form_row(edit_form.pessoa.nome) }}
+
+                                    {{ form_errors(edit_form.pessoa.genero) }}
+                                    {{ form_row(edit_form.pessoa.genero) }}
+
+                                    {{ form_errors(edit_form.pessoa.ddn) }}
+                                    {{ form_row(edit_form.pessoa.ddn) }}
+
+                                    {{ form_errors(edit_form.pessoa.estadoCivil) }}
+                                    {{ form_row(edit_form.pessoa.estadoCivil) }}
+
+                                </ul>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <!-- // tab1 -->
+
+                <div class="tab-pane" id="tab2fb">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <fieldset>
+                                <legend><i class="fontello-icon-vcard"></i> Documentos e anexo <span> </span></legend>
+                                <ul class="form-list label-left list-bordered dotted">
+                                    {{ form_row(edit_form.pessoa.nacionalidade) }}
+                                    {{ form_row(edit_form.pessoa.documento.tipoDocumento) }}
+                                    {{ form_row(edit_form.pessoa.documento.ndi) }}
+                                    {{ form_row(edit_form.anexo) }}
+                                    {{ form_row(edit_form.observacao) }}
+
+
+                                </ul>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+                <!-- // tab2 -->
+
+                <div class="tab-pane" id="tab3fb">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <fieldset>
+                                <legend><i class="fontello-icon-bag"></i> Formação <span> </span></legend>
+                                <ul class="form-list label-left list-bordered dotted">
+                                    {{ form_row(edit_form.formacao.curso) }}
+                                    {{ form_row(edit_form.formacao.grauAcademico) }}
+                                    {{ form_row(edit_form.formacao.descricao) }}
+
+                                </ul>
+                            </fieldset>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token("authenticate") }}">
+                        </div>
+                    </div>
+                </div>
+                       
+                <!-- // tab3 -->
+
+
+            </div>
+            <div class="section-content footer">
+                <ul class="wizard-action wizard-pager">
+                    <li><a class="previous first btn" href="javascript:void(0);">Primeiro</a></li>
+                    <li><a class="previous btn btn-blue" href="javascript:void(0);"><i class="fontello-icon-left-circle2"></i>Anterior</a></li>
+                    <li><a class="next last btn" href="javascript:void(0);">Último</a></li>
+                    <li><a class="next btn btn-blue" href="javascript:void(0);">Próximo <i class="fontello-icon-right-circle2"></i></a></li>
+                     {{ form_start(edit_form) }}
+                        <button type="submit" class="next finish btn btn-green" style="display: block;">Actualizar</button>
+                        {{ form_end(edit_form) }}
+                     {#   {{ form_start(edit_form) }}
+                        
+                        {{ form_end(edit_form) }}
+                        
+                        
+                     <button type="submit" class="next finish btn btn-green" style="display: block;">Terminar</button>#}
+                    
+                    <li><a class="next print btn btn-glyph" href="javascript:void(0);"><i class="fontello-icon-print-2"></i></a></li>
+                    <li><a class="next cancel btn btn-red" href="javascript:void(0);">Cancelar</a></li>
+                </ul>
+                <!-- // Action --> 
+
+            </div>
+
+        </form>
+
+
+
+
+    </div>
+
+
+
+
+
+    {% block javascript %}
+        <script src="{{ asset('assets/plugins/pl-form/validate/js/jquery.validate.min.js') }}"></script> 
+        <script>
+
+            $("input[name='sifena_sifenabundle_candidato_pessoa_']").length > 0){
+                $('#DWZD').validate({
+                    ignore: "",
+                    rules: {
+                        sifena_sifenabundle_candidato_pessoa_nome: {
+                            required: true,
+                            minlength: 4,
+                            maxlength: 20
+                        },
+                        sifena_sifenabundle_candidato_pessoa_ddn: {
+                            required: true
+                        }
+                    },
+                    messages: {
+                        sifena_sifenabundle_candidato_pessoa_nome: {
+                            required: "Please enter a First Name",
+                            minlength: "First Name must be at least 4 characters",
+                            maxlength: "First Name must be no more than 20 characters"
+                        },
+                        sifena_sifenabundle_candidato_pessoa_ddn: {
+                            required: "Please enter a Last Name",
+                            minlength: "Last Name must be at least 4 characters",
+                            maxlength: "Last Name must be no more than 20 characters"
+                        }
+                    },
+                    highlight: function (label) {
+                        $(label).closest('.control-group').addClass('error');
+                    },
+                    success: function (label) {
+                        $(label).text('Ok!').addClass('valid')
+                                .closest('.control-group').addClass('success');
+                    },
+                    errorPlacement: function (error, label) {
+                        $(label).closest('.controls').append(error);
+                    }
+                });
+            }
+
+            $(function () {
+
+
+                $("#sifena_sifenabundle_candidato_pessoa_ddn").datepicker({
+                    format: 'yyyy-mm-dd',
+                    language: 'pt-BR',
+                    endDate: '-18y'
+                });
+
+            });
+        </script>
+        <script type='text/javascript'>
+
+            window.onload = function () {
+                $('#wizard').bootstrapWizard();
+
+                $('#wizard-tabs').bootstrapWizard({
+                    tabClass: 'nav nav-tabs',
+                    onTabShow: function (tab, navigation, index) {
+
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var $myWizard = $('#wizard-tabs');
+                        // If it's the last tab then hide the last button and show the finish instead
+                        if ($current >= $total) {
+                            $myWizard.find('.wizard .next').hide();
+                            $myWizard.find('.wizard .save').show();
+                            $myWizard.find('.wizard .save').removeClass('disabled');
+                        }
+                        else {
+                            $myWizard.find('.wizard .next').show();
+                            $myWizard.find('.wizard .save').hide();
+                        }
+                    }
+                });
+                // base - tabs left, tabs disabled
+                $('#wizard-left').bootstrapWizard({
+                    tabClass: 'nav nav-tabs',
+                    onTabClick: function (tab, navigation, index) {
+                        alert('on tab click disabled, use navigation');
+                        return false;
+                    }
+                });
+                // base - tabs below, submit button, alert
+                $('#wizard-below').bootstrapWizard({
+                    tabClass: 'nav nav-tabs',
+                    nextSelector: '.send-wizard .next',
+                    previousSelector: '.send-wizard .previous',
+                    onTabShow: function (tab, navigation, index) {
+
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        // If it's the last tab then hide the last button and show the finish instead
+                        if ($current >= $total) {
+                            $('#wizard-below').find('.send-wizard .next').hide();
+                            $('#wizard-below').find('.send-wizard .save').show();
+                            $('#wizard-below').find('.send-wizard .save').removeClass('disabled');
+                        }
+                        else {
+                            $('#wizard-below').find('.send-wizard .next').show();
+                            $('#wizard-below').find('.send-wizard .save').hide();
+                        }
+                    }
+                });
+                $('#wizard-below .save').click(function () {
+                    alert('Finished!, Starting over!');
+                    $('#wizard-below').find("a[href*='tab1TB']").trigger('click');
+                });
+                // nav pills, numbering, submit button - well-nice
+                $('#wizard-nice').bootstrapWizard({
+                    tabClass: 'nav nav-pills',
+                    nextSelector: '.wizard-action .next',
+                    previousSelector: '.wizard-action .previous',
+                    onTabShow: function (tab, navigation, index) {
+
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var $myWizard = $('#wizard-nice');
+                        $myWizard.find('.number-page').html($current + '.');
+                        // If it's the last tab then hide the last button and show the finish instead
+                        if ($current >= $total) {
+                            $myWizard.find('.wizard-action .next').hide();
+                            $myWizard.find('.wizard-action .save').show();
+                            $myWizard.find('.wizard-action .save').removeClass('disabled');
+                        }
+                        else {
+                            $myWizard.find('.wizard-action .next').show();
+                            $myWizard.find('.wizard-action .save').hide();
+                        }
+                    }
+                });
+                // nav pills, numbering, submit button well-black
+                $('#wizard-black').bootstrapWizard({
+                    nextSelector: '.wizard-action .next',
+                    previousSelector: '.wizard-action .previous',
+                    onTabShow: function (tab, navigation, index) {
+
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var $percent = ($current / $total) * 100;
+                        $('#wizard-black').find('.number-page').html($current + ' <span class="boo-green">de</span> ' + $total);
+                        // If it's the last tab then hide the last button and show the finish instead
+                        if ($current >= $total) {
+                            $('#wizard-black').find('.wizard-action .next').hide();
+                            $('#wizard-black').find('.wizard-action .finish').show();
+                            $('#wizard-black').find('.wizard-action .finish').removeClass('disabled');
+                            $('#wizard-black').find('.wizard-action .cancel').show();
+                            $('#wizard-black').find('.wizard-action .cancel').removeClass('disabled');
+                        }
+                        else {
+                            $('#wizard-black').find('.wizard-action .next').show();
+                            $('#wizard-black').find('.wizard-action .finish').hide();
+                            $('#wizard-black').find('.wizard-action .cancel').hide();
+                        }
+
+                    }
+                });
+                // navbar, numbering, progressbar, submit button well-nice
+                $('#wizard-progress').bootstrapWizard({
+                    nextSelector: '.wizard-action .next',
+                    previousSelector: '.wizard-action .previous',
+                    firstSelector: '.wizard-action .first',
+                    lastSelector: '.wizard-action .last',
+                    onTabShow: function (tab, navigation, index) {
+
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var $percent = ($current / $total) * 100;
+                        var $wizard = $('#wizard-progress');
+                        $wizard.find('.bar').css({
+                            width: $percent + '%'
+                        });
+                        $wizard.find('.number-page').text($current + ' de ' + $total);
+                        // If it's the last tab then hide the last button and show the finish instead
+                        if ($current >= $total) {
+                            $wizard.find('.wizard-action .next').hide();
+                            $wizard.find('.wizard-action .finish').show();
+                            $wizard.find('.wizard-action .finish').removeClass('disabled');
+                            $wizard.find('.wizard-action .print').show();
+                            $wizard.find('.wizard-action .print').removeClass('disabled');
+                            $wizard.find('.wizard-action .cancel').show();
+                            $wizard.find('.wizard-action .cancel').removeClass('disabled');
+                        }
+                        else {
+                            $wizard.find('.wizard-action .next').show();
+                            $wizard.find('.wizard-action .finish').hide();
+                            $wizard.find('.wizard-action .print').hide();
+                            $wizard.find('.wizard-action .cancel').hide();
+                        }
+
+                    }
+
+                });
+                $('#wizard-progress .finish').click(function () {
+                    //alert('Finished!, Starting over!');
+                    $('#wizard-progress').find("a[href*='tab1e']").trigger('click');
+                });
+                // custom button, progressbar indicator, submit button well-black
+                $('#wizard-idicator').bootstrapWizard({
+                    nextSelector: '.wizard-action .next',
+                    previousSelector: '.wizard-action .previous',
+                    firstSelector: '.wizard-action .first',
+                    lastSelector: '.wizard-action .last',
+                    onTabShow: function (tab, navigation, index) {
+
+                        var $total = navigation.find('li').length;
+                        var $current = index + 1;
+                        var $percent = ($current / $total) * 100;
+                        var $wizard = $('#wizard-idicator');
+                        $wizard.find('.bar').css({
+                            width: $percent + '%'
+                        });
+                        // If it's the last tab then hide the last button and show the finish instead
+                        if ($current >= $total) {
+                            $wizard.find('.wizard-action .next').hide();
+                            $wizard.find('.wizard-action .finish').show();
+                            $wizard.find('.wizard-action .finish').removeClass('disabled');
+                            $wizard.find('.wizard-action .print').show();
+                            $wizard.find('.wizard-action .print').removeClass('disabled');
+                        }
+                        else {
+                            $wizard.find('.wizard-action .next').show();
+                            $wizard.find('.wizard-action .finish').hide();
+                            $wizard.find('.wizard-action .print').hide();
+                        }
+
+                    }
+                });
+                $('#wizard-idicator .finish').click(function () {
+                    alert('Finished!, Starting over!');
+                    $('#wizard-idicator').find("a[href*='tab1f']").trigger('click');
+                });
+                $('#accNewAddressState').select2();
+                $(function (wizardFormBar) {
+                    // navbar, numbering, progressbar, submit button well-nice
+                    wizardFormBar('#DWZD').bootstrapWizard({
+                        nextSelector: '.wizard-action .next',
+                        previousSelector: '.wizard-action .previous',
+                        firstSelector: '.wizard-action .first',
+                        lastSelector: '.wizard-action .last',
+                        onTabShow: function (tab, navigation, index) {
+
+                            var $total = navigation.find('li').length;
+                            var $current = index + 1;
+                            var $percent = ($current / $total) * 100;
+                            var $wizard = $('#DWZD');
+                            $wizard.find('.bar').css({
+                                width: $percent + '%'
+                            });
+                            $wizard.find('.number-page').text($current + ' de ' + $total);
+                            // If it's the last tab then hide the last button and show the finish instead
+                            if ($current >= $total) {
+                                $wizard.find('.wizard-action .next').hide();
+                                $wizard.find('.wizard-action .finish').show();
+                                $wizard.find('.wizard-action .finish').removeClass('disabled');
+                                $wizard.find('.wizard-action .print').show();
+                                $wizard.find('.wizard-action .print').removeClass('disabled');
+                                $wizard.find('.wizard-action .cancel').show();
+                                $wizard.find('.wizard-action .cancel').removeClass('disabled');
+                            }
+                            else {
+                                $wizard.find('.wizard-action .next').show();
+                                $wizard.find('.wizard-action .finish').hide();
+                                $wizard.find('.wizard-action .print').hide();
+                                $wizard.find('.wizard-action .cancel').hide();
+                            }
+
+                        }
+
+                    })
+                    wizardFormBar('#DWZD .finish').click(function () {
+                        //alert('Finished!, Starting over!');
+                        $('#DWZD').find("a[href*='tab1fb']").trigger('click');
+                    })
+
+                    wizardFormBar('#wzNewAddressState2').select2();
+                });
+            };
+        </script>            
+
+
+    {% endblock %}
+
+
+
+{% endblock %}
+

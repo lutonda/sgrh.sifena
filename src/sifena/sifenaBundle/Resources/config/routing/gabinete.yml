@@ -1,0 +1,30 @@
+yes:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Gabinete:index" }
+
+yes_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Gabinete:show" }
+
+yes_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Gabinete:new" }
+
+yes_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Gabinete:create" }
+    requirements: { _method: post }
+
+yes_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Gabinete:edit" }
+
+yes_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Gabinete:update" }
+    requirements: { _method: post|put }
+
+yes_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Gabinete:delete" }
+    requirements: { _method: post|delete }

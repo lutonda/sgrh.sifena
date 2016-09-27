@@ -1,0 +1,30 @@
+utilizador:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Utilizador:index" }
+
+utilizador_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Utilizador:show" }
+
+utilizador_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Utilizador:new" }
+
+utilizador_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Utilizador:create" }
+    requirements: { _method: post }
+
+utilizador_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Utilizador:edit" }
+
+utilizador_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Utilizador:update" }
+    requirements: { _method: post|put }
+
+utilizador_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Utilizador:delete" }
+    requirements: { _method: post|delete }

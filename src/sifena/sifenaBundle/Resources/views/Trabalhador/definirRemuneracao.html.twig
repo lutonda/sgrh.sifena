@@ -1,0 +1,51 @@
+{% extends '::baseTabela.html.twig' %}
+
+
+{% block body -%}
+
+    <a class="btn btn-large btn-glyph" href="{{ path('trabalhador_new') }}" style="margin-left: 783px; margin-top: 3px; height: 8px; font-size: 12px; color: #66cc00;"><i class="fontello-icon-plus-circle-3"></i>Adicionar</a> 
+
+
+    <table id="exampleDTB-1" class="table boo-table table-striped table-content table-hover">
+        <thead>
+            <tr>
+                <th scope="col"># <span class="column-sorter"></span></th>
+                <th scope="col" >Nome <span class="column-sorter"></span></th>
+                <th scope="col" style='text-align: center;'>Estado <span class="column-sorter"></span></th>
+                <th scope="col">Grau Académico<span class="column-sorter"></span></th>
+                <th scope="col">Número interno<span class="column-sorter"></span></th>
+                <th scope="col">Número de conta<span class="column-sorter"></span></th>
+                <th scope="col">IBAN<span class="column-sorter"></span></th>
+
+                <th scope="col" style='text-align: center;'>Operações <span class="column-sorter"></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ loop.index}}</td>
+                    <td><a href="{{ path('trabalhador_show', { 'id': entity.pessoa.id }) }}">{{ entity.pessoa.nome }}</a></td>
+                    <td>Activo</td>
+                    
+                    <td><a href="{{ path('trabalhador_show', { 'id': entity.pessoa.id }) }}">{{ entity.grauAcademico }}</a></td>
+                    <td>{{ entity.numeroInterno }}</td>
+                    <td>{{ entity.numeroConta }}</td>
+                    <td>{{ entity.iban }}</td>
+
+                    <td style='text-align: center;'>
+                        <div class="btn-group center"> 
+                            <a class="btn btn-large btn-glyph" href="{{ path('trabalhador_editar', { 'id': entity.pessoa.id }) }}"><i class="fontello-icon-search-5">Definir</i></a> 
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+
+

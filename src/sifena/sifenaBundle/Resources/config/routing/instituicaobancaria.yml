@@ -1,0 +1,30 @@
+instituicaobancaria:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:InstituicaoBancaria:index" }
+
+instituicaobancaria_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:InstituicaoBancaria:show" }
+
+instituicaobancaria_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:InstituicaoBancaria:new" }
+
+instituicaobancaria_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:InstituicaoBancaria:create" }
+    requirements: { _method: post }
+
+instituicaobancaria_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:InstituicaoBancaria:edit" }
+
+instituicaobancaria_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:InstituicaoBancaria:update" }
+    requirements: { _method: post|put }
+
+instituicaobancaria_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:InstituicaoBancaria:delete" }
+    requirements: { _method: post|delete }

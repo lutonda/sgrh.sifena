@@ -1,0 +1,78 @@
+{% extends '::baseTabela.html.twig' %}
+
+
+
+
+{% block body -%}
+     
+    <a class="btn btn-large btn-glyph" href="{{ path('candidato_new') }}" style="margin-left: 783px; margin-top: 3px; height: 8px; font-size: 12px; color: #66cc00;"><i class="fontello-icon-plus-circle-3"></i>Adicionar</a> 
+        
+   
+    <table id="exampleDTB-1" class="table boo-table table-striped table-content table-hover">
+        <thead>
+            <tr>
+                <th scope="col"># <span class="column-sorter"></span></th>
+                <th scope="col" >Nome <span class="column-sorter"></span></th>
+                <th scope="col" style='text-align: center;'>Identificação <span class="column-sorter"></span></th>
+                <th scope="col" style='text-align: center;'>Genero <span class="column-sorter"></span></th>
+                <th scope="col" style='text-align: center;'>Grau académico <span class="column-sorter"></span></th>
+                <th scope="col" style='text-align: center;'>Data de Candidatura <span class="column-sorter"></span></th>
+                <th scope="col" style='text-align: center;'>Operações <span class="column-sorter"></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ loop.index}}</td>
+                    <td><a href="{{ path('candidato_show', { 'id': entity.pessoa.id }) }}">{{ entity.pessoa.nome|title }}</a></td>
+                    <td>{{ entity.pessoa.documento.ndi|upper }}</td>
+                    <td>{% set genero = entity.pessoa.genero  %}
+                        {% if genero == 'F'  %}
+                            Feminino
+                           {% else  %} 
+                               Masculino
+                        {% endif  %}
+                    </td>
+                    <td>
+                    
+                    {% set grau = entity.formacao.grauAcademico  %}
+                    {% set genero = entity.pessoa.genero  %}
+                        {% if grau == 'L' and genero == 'F'  %}
+                            Licenciada
+                        {% elseif grau == 'L' and genero == 'M'  %}
+                            Licenciado
+                        {% elseif grau == 'B' %}
+                            Bacharel
+                        {% elseif grau == 'M' %}
+                            Mestra
+                            
+                           {% else  %} 
+                               
+                        {% endif  %}
+                    </td>
+                    <td>{{ entity.dataCandidatura|date('d-m-Y H:i:s')  }}</td>
+
+                    <td style='text-align: center;'>
+
+                        <div class="btn-group center"> 
+                            <a class="btn btn-large btn-glyph" href="{{ path('candidato_show', { 'id': entity.pessoa.id }) }}"><i class="fontello-icon-search-5"></i></a> 
+                            <a class="btn btn-large btn-glyph" href="{{ path('candidato_edit', { 'id': entity.pessoa.id }) }}"><i class="fontello-icon-pencil-1"></i></a>
+                            <a class="btn btn-large btn-glyph" href="{{ path('candidato_edit', { 'id': entity.pessoa.id }) }}"><i class="fontello-icon-trash-2"></i></a> 
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+
+

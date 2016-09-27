@@ -1,0 +1,30 @@
+pessoa:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Pessoa:index" }
+
+pessoa_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Pessoa:show" }
+
+pessoa_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Pessoa:new" }
+
+pessoa_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Pessoa:create" }
+    requirements: { _method: post }
+
+pessoa_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Pessoa:edit" }
+
+pessoa_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Pessoa:update" }
+    requirements: { _method: post|put }
+
+pessoa_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Pessoa:delete" }
+    requirements: { _method: post|delete }

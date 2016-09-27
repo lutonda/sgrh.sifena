@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+{% block titulopagina %}
+    <h4><i class="fontello-icon-tags"></i> Registar Departamento <small></small></h4>
+{% endblock %}
+{% block body -%}
+
+
+    <div class="widget-body">
+        <form id="accounForm" class="form-horizontal" method="post" action="{{ path('departamento_create')}}" {{ form_enctype(form) }}>
+            {{ form_errors(form) }}
+            {{ form_start(form) }}
+            <div class="row-fluid">
+                <div class="span12 form-dark">
+                    <fieldset>
+
+                        <ul class="form-list label-left list-bordered dotted">
+
+                            {{ form_row(form.nome) }}
+                            {{ form_row(form.descricao) }}
+                            {{ form_rest(form) }}
+
+                        </ul>
+                    </fieldset>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}
+

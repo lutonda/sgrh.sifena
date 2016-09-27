@@ -1,0 +1,30 @@
+candidato:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Candidato:index" }
+
+candidato_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Candidato:show" }
+
+candidato_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Candidato:new" }
+
+candidato_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Candidato:create" }
+    requirements: { _method: post }
+
+candidato_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Candidato:edit" }
+
+candidato_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Candidato:update" }
+    requirements: { _method: post|put }
+
+candidato_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Candidato:delete" }
+    requirements: { _method: post|delete }

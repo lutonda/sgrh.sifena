@@ -1,0 +1,23 @@
+{% extends '::base.html.twig' %}
+
+{% block titulopagina %}
+    <h4><i class="fontello-icon-pencil-neg"></i> Editar dados de profissão <small></small></h4>
+{% endblock %}
+
+{% block body -%}
+    {{ form_start(edit_form) }}
+    <button style="font-size: 12px; margin-bottom: -327px; margin-left: 200px;" class="btn btn-blue" type="submit">
+        <i class="fontello-icon-ok-1"></i>Actualizar
+    </button>
+    {{ form_end(edit_form) }}
+
+    {{ form_start(delete_form) }}
+    <button style="font-size: 12px; margin-left: 315px; margin-bottom: 5px;" class="btn btn-danger" type="submit">
+        <i class="fontello-icon-trash-empty"></i>Eliminar
+    </button>
+    {{ form_end(delete_form) }}
+    <script type="text/css">
+        
+         
+    </script>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends '::base.html.twig' %}
+{% block titulopagina %}
+    <h4><i class=" fontello-icon-user-1"></i> Registar utilizador <small></small></h4>
+{% endblock %}
+{% block body -%}
+
+
+    <div class="widget-body">
+        <form id="accounForm" class="form-horizontal" method="post" action="{{ path('utilizador_create')}}" {{ form_enctype(form) }}>
+            {{ form_errors(form) }}
+            {{ form_start(form) }}
+            <div class="row-fluid">
+                <div class="span12 form-dark">
+                    <fieldset>
+
+                        <ul class="form-list label-left list-bordered dotted">
+
+                            {{ form_row(form.username) }}
+                            {{ form_row(form.password) }}
+                            {{ form_row(form.email) }}
+                            {{ form_row(form.isActive) }}
+                            
+                            {{ form_rest(form) }}
+
+                        </ul>
+                    </fieldset>
+
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+{% endblock %}

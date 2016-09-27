@@ -1,0 +1,36 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Candidato</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Datacandidatura</th>
+                <td>{{ entity.dataCandidatura|date('d-m-Y H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Anexo</th>
+                <td>{{ entity.anexo }}</td>
+            </tr>
+            <tr>
+                <th>Observacao</th>
+                <td>{{ entity.observacao }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('candidato') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('candidato_edit', { 'id': entity.pessoa.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

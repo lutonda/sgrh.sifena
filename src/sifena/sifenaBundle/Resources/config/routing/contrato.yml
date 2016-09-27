@@ -1,0 +1,30 @@
+contrato:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Contrato:index" }
+
+contrato_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Contrato:show" }
+
+contrato_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Contrato:new" }
+
+contrato_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Contrato:create" }
+    requirements: { _method: post }
+
+contrato_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Contrato:edit" }
+
+contrato_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Contrato:update" }
+    requirements: { _method: post|put }
+
+contrato_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Contrato:delete" }
+    requirements: { _method: post|delete }

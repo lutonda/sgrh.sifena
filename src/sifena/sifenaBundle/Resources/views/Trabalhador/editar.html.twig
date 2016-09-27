@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+
+{% block titulopagina %}
+    <h4><i class="fontello-icon-pencil-neg"></i> Editar dados de utilizador <small></small></h4>
+{% endblock %}
+
+{% block body -%}
+    <br/>
+    
+            {{ form_start(edit_form) }}
+            {{ form_row(edit_form.profissao) }}
+            {{ form_row(edit_form.categoria) }}
+            {{ form_row(edit_form.sector) }}
+            {{ form_row(edit_form.numeroInterno) }}
+     
+{% endblock %}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="sifena\sifenaBundle\Entity\Trabalhador" table="trabalhador">
+    <indexes>
+      <index name="fk_profissao" columns="profissao"/>
+      <index name="fk_sector" columns="sector"/>
+      <index name="fk_categoria1" columns="categoria"/>
+      <index name="fk_instituicao_bancaria" columns="instituicao_bancaria"/>
+    </indexes>
+    <unique-constraints>
+      <unique-constraint name="iban" columns="iban"/>
+    </unique-constraints>
+    <id name="pessoa" association-key="true"/>
+    <field name="grauAcademico" type="string" column="grau_academico" length="2" nullable="true"/>
+    <field name="numeroInterno" type="string" column="numero_interno" length="30" nullable="true"/>
+    <field name="numeroConta" type="string" column="numero_conta" length="50" nullable="true"/>
+    <field name="iban" type="string" column="iban" length="30" nullable="false"/>
+    <one-to-one field="pessoa" target-entity="Pessoa">
+      <join-columns>
+        <join-column name="pessoa" referenced-column-name="id"/>
+      </join-columns>
+    </one-to-one>
+    <many-to-one field="sector" target-entity="Sector">
+      <join-columns>
+        <join-column name="sector" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="profissao" target-entity="Profissao">
+      <join-columns>
+        <join-column name="profissao" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="categoria" target-entity="Categoria">
+      <join-columns>
+        <join-column name="categoria" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="instituicaoBancaria" target-entity="InstituicaoBancaria">
+      <join-columns>
+        <join-column name="instituicao_bancaria" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

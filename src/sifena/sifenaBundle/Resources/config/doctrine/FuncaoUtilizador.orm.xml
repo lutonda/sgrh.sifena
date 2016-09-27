@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="sifena\sifenaBundle\Entity\FuncaoUtilizador" table="funcao_utilizador">
+    <indexes>
+      <index name="fk_fu_utilizador" columns="utilizador"/>
+      <index name="fk_fu_funcao" columns="funcao"/>
+    </indexes>
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <many-to-one field="utilizador" target-entity="Utilizador">
+      <join-columns>
+        <join-column name="utilizador" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="funcao" target-entity="Funcao">
+      <join-columns>
+        <join-column name="funcao" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+  </entity>
+</doctrine-mapping>

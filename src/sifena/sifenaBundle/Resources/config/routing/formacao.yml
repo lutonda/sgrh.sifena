@@ -1,0 +1,30 @@
+formacao:
+    path:     /
+    defaults: { _controller: "sifenasifenaBundle:Formacao:index" }
+
+formacao_show:
+    path:     /{id}/show
+    defaults: { _controller: "sifenasifenaBundle:Formacao:show" }
+
+formacao_new:
+    path:     /new
+    defaults: { _controller: "sifenasifenaBundle:Formacao:new" }
+
+formacao_create:
+    path:     /create
+    defaults: { _controller: "sifenasifenaBundle:Formacao:create" }
+    requirements: { _method: post }
+
+formacao_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "sifenasifenaBundle:Formacao:edit" }
+
+formacao_update:
+    path:     /{id}/update
+    defaults: { _controller: "sifenasifenaBundle:Formacao:update" }
+    requirements: { _method: post|put }
+
+formacao_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "sifenasifenaBundle:Formacao:delete" }
+    requirements: { _method: post|delete }

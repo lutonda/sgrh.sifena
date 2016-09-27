@@ -1,0 +1,168 @@
+sifena\sifenaBundle\Entity\Candidato:
+    properties:
+        pessoa:
+            - Valid: ~ 
+        formacao:
+            - Valid: ~       
+sifena\sifenaBundle\Entity\Pessoa:
+    properties:
+        nome:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+            - Length:
+                min: 4
+                max: 50
+                minMessage: 'O nome deve conter no mínimo {{ limit }} caracteres.'
+                maxMessage: 'O nome deve conter no máximo {{ limit }} caracteres.'
+            - Regex:
+                pattern: '/\d/'
+                match:   false
+                message: O nome não pode conter números    
+        documento:
+            - Valid: ~  
+        ddn:
+            - Date: ~ 
+            
+sifena\sifenaBundle\Entity\Formacao:
+    properties:
+        curso:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+            - Length:
+                min: 4
+                max: 50
+                minMessage: 'O nome deve conter no mínimo {{ limit }} caracteres.'
+                maxMessage: 'O nome deve conter no máximo {{ limit }} caracteres.'
+        grauAcademico:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.             
+sifena\sifenaBundle\Entity\Utilizador:
+    properties:
+        username:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+            - Length:
+                min: 6
+                max: 50
+                minMessage: 'O nome deve conter no mínimo {{ limit }} caracteres.'
+                maxMessage: 'O nome deve conter no máximo {{ limit }} caracteres.'
+        password:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+            - Length:
+                min: 8
+                max: 100
+                minMessage: 'A password deve conter no mínimo {{ limit }} caracteres.'
+                maxMessage: 'A password deve conter no máximo {{ limit }} caracteres.'             
+sifena\sifenaBundle\Entity\Profissao:
+    properties:
+        nome:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+            - Length:
+                min: 4
+                max: 50
+                minMessage: 'O nome deve conter no mínimo {{ limit }} caracteres.'
+                maxMessage: 'O nome deve conter no máximo {{ limit }} caracteres.'
+    constraints:            
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [nome]
+            errorPath: nome
+            message: 'Já existe uma profissão com esse nome.'
+            
+sifena\sifenaBundle\Entity\Documento:
+    properties:
+        ndi:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+            - Length:
+                min: 6
+                max: 16
+                minMessage: 'A identificação deve conter no mínimo {{ limit }} caracteres.'
+                maxMessage: 'A identificação deve conter no máximo {{ limit }} caracteres.'
+        tipoDocumento:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.            
+    constraints:            
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [ndi]
+            errorPath: ndi
+            message: "Já existe uma identificação registada com este número "        
+
+sifena\sifenaBundle\Entity\Trabalhador:
+    properties:
+        iban:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+            - Length:
+                min: 24
+                max: 28
+                minMessage: 'O nome deve conter no mínimo {{ limit }} caracteres.'
+                maxMessage: 'O nome deve conter no máximo {{ limit }} caracteres.'
+        numeroConta:
+            - NotBlank: 
+               message: Campo de preenchimento obrigatório.
+        pessoa:
+            - Valid: ~       
+    constraints:            
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [iban]
+            errorPath: iban
+            message: 'Já existe um iban registado'            
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [pessoa]
+            errorPath: pessoa
+            message: 'já é trabalhador'
+            
+sifena\sifenaBundle\Entity\Contrato:
+    properties:
+        #iban:
+           # - NotBlank: 
+           #    message: Campo de preenchimento obrigatório.
+           # - Length:
+           #     min: 24
+           #     max: 28
+           #     minMessage: 'O nome deve conter no mínimo {{ limit }} caracteres.'
+           #     maxMessage: 'O nome deve conter no máximo {{ limit }} caracteres.'
+        #numeroConta:
+            #- NotBlank: 
+              # message: Campo de preenchimento obrigatório.
+        trabalhador:
+            - Valid: ~       
+    constraints:            
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [trabalhador,tipoContrato]
+            errorPath: trabalhador
+            message: 'Este trabalhador já possui contrato'            
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [trabalhador,estado]
+            errorPath: trabalhador
+            message: 'já é trabalhador' 
+            
+            
+sifena\sifenaBundle\Entity\FuncaoUtilizador:
+    properties:
+        #iban:
+           # - NotBlank: 
+           #    message: Campo de preenchimento obrigatório.
+           # - Length:
+           #     min: 24
+           #     max: 28
+           #     minMessage: 'O nome deve conter no mínimo {{ limit }} caracteres.'
+           #     maxMessage: 'O nome deve conter no máximo {{ limit }} caracteres.'
+        #numeroConta:
+            #- NotBlank: 
+              # message: Campo de preenchimento obrigatório.
+        utilizador:
+            - Valid: ~
+        funcao:
+            - Valid: ~    
+    constraints:            
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [utilizador,funcao]
+            errorPath: utilizador
+            message: 'Este utilizador já possui função'            
+            
+
+                
+           
